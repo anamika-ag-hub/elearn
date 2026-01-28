@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from email.policy import default
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,10 +82,10 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'master',       
+        'NAME': 'anamika',       
         'USER': 'master',
-        'PASSWORD': 'anamika@123',
-        'HOST': "database-1.crcccmg0g3au.ap-south-1.rds.amazonaws.com" ,
+        'PASSWORD': 'anamika123',
+        'HOST':"database-1.crcccmg0g3au.ap-south-1.rds.amazonaws.com"   ,
         'PORT': '5432',
     }
 }
@@ -126,6 +127,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'collectstatic')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
