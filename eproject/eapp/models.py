@@ -12,7 +12,7 @@ class Registration(models.Model):
 class Addregistration(models.Model):
     coursename=models.CharField(max_length=200,null=True,blank=True)
     mentorname=models.CharField(max_length=200,null=True,blank=True)
-    coursefee=models.IntegerField(max_length=50,null=True,blank=True)
+    coursefee=models.IntegerField(null=True,blank=True)
     courserating=models.FloatField(null=True,blank=True)
     coursedescription=models.CharField(max_length=500,null=True,blank=True)
     coursetype=models.CharField(max_length=50,null=True,blank=True)
