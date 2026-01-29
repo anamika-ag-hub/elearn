@@ -1,0 +1,210 @@
+:root {
+  --bg: #e0e5ec;
+  --input: #ecf0f3;
+  --shadow-dark: #a3b1c6;
+  --shadow-light: #ffffff;
+  --accent: #9db2bf;
+  --text: #555;
+}
+
+body.pink {
+  --bg: #f5e9ec;
+  --input: #fdf6f9;
+  --shadow-dark: #d4b9c3;
+  --shadow-light: #fff;
+  --accent: #e38cad;
+  --text: #444;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.4s ease;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--input);
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 3px 3px 8px var(--shadow-dark), -3px -3px 8px var(--shadow-light);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.theme-toggle:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+.container {
+  width: 360px;
+  padding: 30px;
+  border-radius: 25px;
+  background: var(--bg);
+  box-shadow: 12px 12px 30px var(--shadow-dark), -12px -12px 30px var(--shadow-light);
+  transition: all 0.6s ease;
+  animation: fadeSlideIn 0.6s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--text);
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background: var(--input);
+  box-shadow: inset 5px 5px 10px var(--shadow-dark),
+              inset -5px -5px 10px var(--shadow-light);
+  padding: 14px 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+.input-group:hover {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+
+.input-group input {
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  padding-top: 8px;
+}
+
+.input-group label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 14px;
+  color: #999;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown):valid + label,
+.input-group:hover input + label {
+  top: 4px;
+  font-size: 11px;
+  color: var(--accent);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 5px 5px 10px var(--shadow-dark),
+              -5px -5px 10px var(--shadow-light);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #7a93a8;
+  transform: scale(1.02);
+}
+
+.toggle-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.switch-text {
+  text-align: center;
+  font-size: 14px;
+}
+
+.switch-text a {
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.success-message {
+  display: none;
+  text-align: center;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.success-message h3 {
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
